@@ -31,8 +31,7 @@ grunt.initConfig( {
 			"{lib,test}/**/*.js"
 		],
 		tasks: "default"
-	},
-	clean: [ "test/temp" ]
+	}
 } );
 
 grunt.registerTask( "test", function() {

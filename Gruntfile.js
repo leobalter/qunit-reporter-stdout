@@ -42,10 +42,11 @@ grunt.registerTask( "test", function() {
 	var stdout = require( "./lib/index" );
 
 	// init the stdout
-	stdout( QUnit );
+	stdout( QUnit, { output: "verbose" } );
 
 	require( "./test/stdout" );
 	require( "./test/output" );
+	require( "./test/output-error" );
 
 	QUnit.done( function( details ) {
 		done( details.failed === 0 );

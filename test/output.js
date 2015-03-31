@@ -18,7 +18,9 @@ QUnit.test( "all", function( assert ) {
         var file = __dirname + "/output/" + mode;
         var output, expected, lastLine, emptyLine;
 
-        output = cp.execSync( "node " + file ) + "";
+        output = cp.execSync( "node " + file, {
+            encoding: "utf-8"
+        } );
         output = output.split( "\n" );
 
         // Remove last empty and written line
@@ -31,7 +33,7 @@ QUnit.test( "all", function( assert ) {
         expected = expected.trim();
 
         assert.regexp( output, expected, mode + " output" );
-        assert.strictEqual( emptyLine, "", "output finishes with a empty" );
+        assert.strictEqual( emptyLine, "", "output finishes with an empty line" );
         assert.ok(
             /5 assertions in \d+ms, passed: 5, failed: 0/.test( lastLine ),
             mode + " last line" );

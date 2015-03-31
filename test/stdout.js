@@ -1,5 +1,4 @@
-var QUnit = require( "qunitjs" );
-var stdout = require( "../lib/index.js" );
+var QUnit = global.QUnit;
 var methods = {
         "moduleStart": 0,
         "testStart": 0,
@@ -8,9 +7,6 @@ var methods = {
         "done": 0
     };
 var methodsList = Object.keys( methods );
-
-// init the stdout
-stdout( QUnit );
 
 // check each logging callback before we export the done method
 methodsList.forEach( function( method ) {
@@ -25,7 +21,3 @@ QUnit.test( "init", function( assert ) {
         assert.strictEqual( methods[ method ], 1, method + " callback set" );
     } );
 } );
-
-module.exports = QUnit.done;
-
-QUnit.load();

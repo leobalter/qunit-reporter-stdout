@@ -1,5 +1,5 @@
-var cp = require( "child_process" );
 var fs = require( "fs" );
+var spawnSync = require( "spawn-sync" );
 var QUnit = global.QUnit;
 
 QUnit.assert.regexp = function( actual, expected, message ) {
@@ -18,7 +18,7 @@ QUnit.test( "all", function( assert ) {
         var file = __dirname + "/output/" + mode;
         var output, expected, lastLine, emptyLine, errors;
 
-        output = cp.spawnSync( "node", [ file ], {
+        output = spawnSync( "node", [ file ], {
             encoding: "utf-8"
         } );
 

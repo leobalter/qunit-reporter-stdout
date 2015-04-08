@@ -12,16 +12,18 @@ QUnit.assert.regexp = function( actual, expected, message ) {
 QUnit.module( "outputs" );
 
 QUnit.test( "all", function( assert ) {
-    assert.expect( 9 );
+    assert.expect( 12 );
 
     [ "regular", "minimal", "verbose" ].forEach( function( mode ) {
         var file = __dirname + "/output/" + mode;
-        var output, expected, lastLine, emptyLine;
+        var output, expected, lastLine, emptyLine, errors;
 
-        output = cp.execSync( "node " + file, {
+        output = cp.spawnSync( "node", [ file ], {
             encoding: "utf-8"
         } );
-        output = output.split( "\n" );
+
+        errors = output.stderr;
+        output = output.stdout.split( "\n" );
 
         // Remove last empty and written line
         emptyLine = output.pop();
@@ -32,6 +34,7 @@ QUnit.test( "all", function( assert ) {
         expected = fs.readFileSync( file + ".txt" ) + "";
         expected = expected.trim();
 
+        assert.ok( !errors, "stderr is clean" );
         assert.regexp( output, expected, mode + " output" );
         assert.strictEqual( emptyLine, "", "output finishes with an empty line" );
         assert.ok(

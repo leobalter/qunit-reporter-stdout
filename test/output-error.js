@@ -18,10 +18,11 @@ QUnit.test( "all", function( assert ) {
         var file = __dirname + "/output-error/" + mode;
         var output, expected;
 
+        // spawn-sync 1.0.5 return stderr and stdout buffers instead of string
         output = spawnSync( "node", [ file ], {
             stdio: "pipe",
             encoding: "utf-8"
-        } ).stderr.trim();
+        } ).stderr.toString().trim();
 
         expected = fs.readFileSync( file + ".txt" ) + "";
 

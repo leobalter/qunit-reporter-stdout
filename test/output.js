@@ -22,8 +22,9 @@ QUnit.test( "all", function( assert ) {
             encoding: "utf-8"
         } );
 
-        errors = output.stderr;
-        output = output.stdout.split( "\n" );
+        // spawn-sync 1.0.5 return stderr and stdout buffers instead of string
+        errors = output.stderr.toString();
+        output = output.stdout.toString().split( "\n" );
 
         // Remove last empty and written line
         emptyLine = output.pop();

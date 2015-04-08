@@ -28,6 +28,7 @@ grunt.initConfig( {
 		files: [
 			".jshintrc",
 			".jscsrc",
+			"Gruntfile.js",
 			"{lib,test}/**/*.js"
 		],
 		tasks: "default"
@@ -36,11 +37,22 @@ grunt.initConfig( {
 
 grunt.registerTask( "test", function() {
 	var done = this.async();
-	var reporterDone = require( "./test/stdout.js" );
 
-	reporterDone( function( details ) {
+	var QUnit = global.QUnit = require( "qunitjs" );
+	var stdout = require( "./lib/index" );
+
+	// init the stdout
+	stdout( QUnit, { output: "verbose" } );
+
+	require( "./test/stdout" );
+	require( "./test/output" );
+	require( "./test/output-error" );
+
+	QUnit.done( function( details ) {
 		done( details.failed === 0 );
 	} );
+
+	QUnit.load();
 } );
 
 grunt.registerTask( "default", [ "jshint", "jscs", "test" ] );

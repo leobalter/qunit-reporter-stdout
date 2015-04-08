@@ -1,0 +1,13 @@
+foo
+  first test
+    okay
+    ★
+    test passed - \d+ms
+  second test
+    okay
+    test passed - \d+ms
+bar
+  first test
+    okay
+    ★
+    test passed - \d+ms

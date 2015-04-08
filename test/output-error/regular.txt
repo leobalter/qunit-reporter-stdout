@@ -1,0 +1,10 @@
+    FAILED! failed, expected argument to be truthy, was: false
+    Actual: false
+    Expected: true
+      at Object.<anonymous> \(/.+test/output-error/tests\.js\:\d+\:\d+\)
+
+    FAILED! undefined
+    Actual: 1
+    Expected: 2
+      at Object.<anonymous> \(/.+test/output-error/tests\.js\:\d+\:\d+\)
+6 assertions in \d+ms, passed: 4, failed: 2

@@ -2,6 +2,8 @@
 
 A QUnit plugin to report the results on node's stdout.
 
+[![Build Status](https://travis-ci.org/leobalter/qunit-reporter-stdout.svg?branch=master)](https://travis-ci.org/leobalter/qunit-reporter-stdout)
+
 ## Install
 
 This module requires the original QUnit (on npm as `qunitjs`) in order to run.

@@ -22,7 +22,7 @@ QUnit.test( "all", function( assert ) {
         output = spawnSync( "node", [ file ], {
             stdio: "pipe",
             encoding: "utf-8"
-        } ).stderr.toString().trim();
+        } ).stderr.trim();
 
         expected = fs.readFileSync( file + ".txt" ) + "";
 

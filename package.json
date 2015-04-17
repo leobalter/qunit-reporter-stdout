@@ -1,6 +1,6 @@
 {
   "name": "qunit-reporter-stdout",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A QUnit plugin to report the results on node's stdout",
   "main": "lib/index.js",
   "repository": "https://github.com/leobalter/qunit-reporter-stdout",
@@ -24,6 +24,5 @@
     "spawn-sync": "^1.0.6",
     "stdout-reporter": "^1.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

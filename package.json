@@ -25,6 +25,5 @@
     "stdout-reporter": "^1.0.0"
   },
   "dependencies": {
-    "chalk": "^1.0.0"
   }
 }
